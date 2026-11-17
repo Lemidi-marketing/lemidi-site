@@ -1,3 +1,4 @@
-# Fase de teste: bloqueado. Na troca de domínio, substituir pelo conteúdo de robots.prod.txt
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://lemidi.com.br/sitemap.xml
