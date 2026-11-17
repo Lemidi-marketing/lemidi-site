@@ -1,0 +1,11 @@
+# Endereços do site antigo (WordPress)
+/2021/08/20/ola-mundo/*   /blog/                       301
+/2021/08/20/ola-mundo     /blog/                       301
+/feed/*                   /blog/                       301
+/wp-admin/*               /                            301
+/wp-login.php             /                            301
+/wp-content/*             /                            301
+/category/*               /blog/                       301
+/author/*                 /blog/                       301
+/curso                    /o-poder-do-atendimento/     301
+/privacidade              /politica-de-privacidade/    301
