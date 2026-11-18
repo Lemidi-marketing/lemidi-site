@@ -229,6 +229,14 @@ header.solid{background:rgba(5,11,22,.88);-webkit-backdrop-filter:blur(14px);bac
 .asoc a:hover{text-decoration:underline}
 .flogo{display:inline-flex}.flogo img{display:block}
 footer .legal{font-size:11px;letter-spacing:.08em;color:var(--mut);margin:-14px 0 0}.bfoot .legal{margin-top:14px}footer .legal a{color:inherit;text-decoration:underline;text-underline-offset:3px}.pre-seen #pre{display:none!important}#blog .post .go{margin-top:auto}</style>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DB2L9GB1PN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DB2L9GB1PN');
+/* cliques que importam para o comercial viram eventos no Analytics */
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.href||'';
+if(h.indexOf('wa.me/')>-1){gtag('event','generate_lead',{method:'whatsapp',link_text:(a.textContent||'').trim().slice(0,60)});}
+else if(h.indexOf('hotmart.com')>-1){gtag('event','begin_checkout',{item_name:'O Poder do Atendimento'});}
+else if(h.indexOf('crm.lemidi.com.br')>-1){gtag('event','sign_up',{method:'teste_crm'});}},true);</script>
 </head>
 <body>
 <div id="pre" aria-hidden="true"><div class="pfill"><canvas id="preCv"></canvas><img id="preImg" src="/assets/img/b3cb3f54b946f7.webp" alt="" style="display:none"></div><div id="preB" hidden><i id="preI"></i></div><div id="preN" hidden>000</div></div>

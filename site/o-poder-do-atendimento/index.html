@@ -158,6 +158,14 @@ footer a{color:var(--ink);text-decoration:none}
 @keyframes ring{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}50%{box-shadow:0 0 0 7px rgba(255,255,255,0)}}
 @media (prefers-reduced-motion:reduce){.m.call::before{animation:none}.tip2{transition:none}}
 footer .legal{flex-basis:100%;font-size:11px;letter-spacing:.08em;color:var(--mut);margin:0}footer .legal a{color:inherit;text-decoration:underline;text-underline-offset:3px}.dpv{text-decoration:none;color:inherit}.dpv .dv{position:relative;overflow:hidden;padding:0;border:0;aspect-ratio:16/9;background:#0D2F5A}.dpv .dv img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}.dpv:hover .dv img{transform:scale(1.04)}.dpv .pl{position:absolute;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:rgba(2,136,209,.92);box-shadow:0 8px 28px rgba(0,0,0,.3);transition:transform .3s}.dpv:hover .pl{transform:scale(1.08)}.dpv .pl::after{content:"";position:absolute;left:21px;top:16px;border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #fff}</style>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DB2L9GB1PN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DB2L9GB1PN');
+/* cliques que importam para o comercial viram eventos no Analytics */
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.href||'';
+if(h.indexOf('wa.me/')>-1){gtag('event','generate_lead',{method:'whatsapp',link_text:(a.textContent||'').trim().slice(0,60)});}
+else if(h.indexOf('hotmart.com')>-1){gtag('event','begin_checkout',{item_name:'O Poder do Atendimento'});}
+else if(h.indexOf('crm.lemidi.com.br')>-1){gtag('event','sign_up',{method:'teste_crm'});}},true);</script>
 </head>
 <body>
 <header id="hd"><a href="/" aria-label="Lemidi, ir para a home"><img src="/assets/img/235431519d1110.png" alt="Lemidi"></a><div class="r"><p class="mono">Curso online</p><a class="btn sm" href="https://pay.hotmart.com/L97174776P" target="_blank" rel="noopener">Garantir acesso</a></div></header>

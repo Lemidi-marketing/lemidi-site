@@ -94,6 +94,14 @@ footer{padding:22px clamp(18px,4vw,48px);border-top:1px solid var(--line);displa
 .top .lg{justify-self:center;display:block}
 @media (max-width:640px){.top .lg{justify-self:end}}
 footer .legal{flex-basis:100%;font-size:11px;letter-spacing:.08em;color:var(--mut);margin:0}footer .legal a{color:inherit;text-decoration:underline;text-underline-offset:3px}</style>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DB2L9GB1PN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DB2L9GB1PN');
+/* cliques que importam para o comercial viram eventos no Analytics */
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.href||'';
+if(h.indexOf('wa.me/')>-1){gtag('event','generate_lead',{method:'whatsapp',link_text:(a.textContent||'').trim().slice(0,60)});}
+else if(h.indexOf('hotmart.com')>-1){gtag('event','begin_checkout',{item_name:'O Poder do Atendimento'});}
+else if(h.indexOf('crm.lemidi.com.br')>-1){gtag('event','sign_up',{method:'teste_crm'});}},true);</script>
 </head>
 <body>
 <header class="top"><a class="bk" href="/odontologia/"><span aria-hidden="true">←</span> Voltar<span class="bkl">&nbsp;para Odontologia</span></a><a class="lg" href="/" aria-label="Lemidi, ir para a home"><img src="/assets/img/235431519d1110.png" alt="Lemidi"></a><p class="mono hd-r">Calculadora de metas · Odontologia</p></header>
