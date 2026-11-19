@@ -1,0 +1,25 @@
+name: guarda-blog
+
+# Roda a versão desta verificação que está no main (pull_request_target),
+# para que um pull request não consiga alterar a própria trava.
+# O script só lê arquivos com git; nada do pull request é executado.
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  guarda-blog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Busca o pull request
+        run: git fetch --no-tags origin "+refs/pull/${{ github.event.pull_request.number }}/head:refs/remotes/pr/head"
+      - name: Confere se só o blog mudou
+        run: python3 .github/workflows/guarda_blog.py "${{ github.event.pull_request.base.sha }}" "$(git rev-parse refs/remotes/pr/head)"
