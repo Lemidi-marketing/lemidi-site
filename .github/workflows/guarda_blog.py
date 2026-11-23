@@ -8,11 +8,31 @@ import json
 import re
 import subprocess
 import sys
+import zlib
 
 BASE, HEAD = sys.argv[1], sys.argv[2]
 SLUG = r"[a-z0-9]+(?:-[a-z0-9]+)*"
 POST = re.compile(rf"^site/blog/({SLUG})/index\.html$")
 IMG = re.compile(rf"^site/assets/img/blog/{SLUG}\.(webp|jpg|jpeg|png)$")
+PDF = re.compile(rf"^site/assets/pdf/blog/{SLUG}\.pdf$")
+MAX_PDF = 2 * 1024 * 1024
+# Nada de ação automática dentro do PDF (JavaScript, abrir programa, arquivo embutido).
+PDF_PERIGOSO = re.compile(rb"/(JavaScript|JS|OpenAction|AA|Launch|EmbeddedFile|RichMedia|SubmitForm|ImportData)\b")
+STREAM = re.compile(rb"stream\r?\n(.*?)\r?\nendstream", re.S)
+
+
+def pdf_perigoso(dados):
+    """Procura ações automáticas no PDF, inclusive dentro de streams comprimidos (object streams)."""
+    if PDF_PERIGOSO.search(dados):
+        return True
+    for bloco in STREAM.findall(dados):
+        try:
+            aberto = zlib.decompressobj().decompress(bloco, 20 * 1024 * 1024)
+        except zlib.error:
+            continue
+        if PDF_PERIGOSO.search(aberto):
+            return True
+    return False
 EDITAVEIS = {"site/index.html", "site/blog/index.html", "site/sitemap.xml", "site/_redirects"}
 MODELO = "site/blog/como-reduzir-faltas-de-pacientes/index.html"
 PERIGOSO = re.compile(r"<script|<style|<iframe|<object|<embed|<form|<link|<meta|javascript:|\son[a-z]+\s*=", re.I)
@@ -117,6 +137,17 @@ for status, caminho in mudancas:
             tamanho = int(git("cat-file", "-s", f"{HEAD}:{caminho}"))
             if tamanho > MAX_IMG:
                 erros.append(f"{caminho}: imagem com {tamanho // 1024} KB, o limite é 800 KB")
+        continue
+
+    if PDF.match(caminho):
+        if status != "D":
+            dados = git("show", f"{HEAD}:{caminho}")
+            if len(dados) > MAX_PDF:
+                erros.append(f"{caminho}: PDF com {len(dados) // 1024} KB, o limite é 2048 KB")
+            if not dados.startswith(b"%PDF-"):
+                erros.append(f"{caminho}: não é um PDF")
+            if pdf_perigoso(dados):
+                erros.append(f"{caminho}: PDF com ação automática (JavaScript, abrir arquivo ou formulário)")
         continue
 
     if caminho not in EDITAVEIS:

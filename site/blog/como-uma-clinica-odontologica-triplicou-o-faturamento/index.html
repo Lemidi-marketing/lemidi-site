@@ -475,6 +475,30 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 if(h.indexOf('wa.me/')>-1){gtag('event','generate_lead',{method:'whatsapp',link_text:(a.textContent||'').trim().slice(0,60)});}
 else if(h.indexOf('hotmart.com')>-1){gtag('event','begin_checkout',{item_name:'O Poder do Atendimento'});}
 else if(h.indexOf('crm.lemidi.com.br')>-1){gtag('event','sign_up',{method:'teste_crm'});}},true);</script>
+<style id="dl-css">
+.dl-ov{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(3,8,16,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;transition:opacity .25s ease}
+.dl-ov[hidden]{display:none}
+.dl-ov.on{opacity:1}
+.dl-box{position:relative;width:100%;max-width:440px;max-height:calc(100vh - 40px);overflow:auto;background:#0B1626;border:1px solid var(--line);border-radius:20px;padding:30px 28px 26px;color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.45);transform:translateY(12px);transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.dl-ov.on .dl-box{transform:none}
+.dl-box h2{margin:0 0 6px;padding-right:40px;font-family:Sora,sans-serif;font-size:22px;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.dl-box .dl-sub{margin:0 0 20px;color:var(--mut);font-size:14.5px;line-height:1.5}
+.dl-box label{display:block;font-size:13px;font-weight:600;margin:0 0 6px;color:var(--ink)}
+.dl-box input[type=text],.dl-box input[type=email],.dl-box input[type=tel]{display:block;width:100%;box-sizing:border-box;height:46px;margin:0 0 14px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:#050B16;color:var(--ink);font:inherit;font-size:15px}
+.dl-box input:focus{outline:none;border-color:var(--light);box-shadow:0 0 0 3px rgba(108,196,255,.18)}
+.dl-box .dl-ok{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.5;color:var(--mut);margin:4px 0 18px;font-weight:400!important}
+.dl-box .dl-ok input{margin:2px 0 0;width:16px;height:16px;flex:0 0 auto;accent-color:var(--blue)}
+.dl-box .dl-ok a{color:var(--light)}
+.dl-err{min-height:0;margin:0 0 12px;color:#FF8A8A;font-size:13.5px;line-height:1.45}
+.dl-err:empty{display:none}
+.dl-box .btn{width:100%}
+.dl-box .btn[disabled]{opacity:.6;cursor:wait}
+.dl-x{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:18px;border:1px solid var(--line);background:transparent;color:var(--mut);font-size:20px;line-height:1;cursor:pointer}
+.dl-x:hover{color:var(--ink);border-color:var(--mut)}
+.dl-hp{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+@media (max-width:560px){.dl-ov{align-items:flex-end;padding:0}.dl-box{max-width:none;border-radius:20px 20px 0 0;max-height:92vh;padding:26px 20px 22px}}
+@media (prefers-reduced-motion:reduce){.dl-ov,.dl-box{transition:none}}
+</style>
 </head>
 <body data-art="vCL">
 <div id="prog"></div>
@@ -1123,5 +1147,69 @@ onScroll(); requestAnimationFrame(frame);
 })();
 </script>
 <script>(function(){var h=document.getElementById('hd');if(!h)return;function f(){h.classList.toggle('solid',(window.scrollY||0)>60);}window.addEventListener('scroll',f,{passive:true});f();})();</script>
-<script>Array.prototype.forEach.call(document.querySelectorAll(".vcase[data-yt]"),function(a){a.addEventListener("click",function(e){if(location.hostname.indexOf("claude")>-1||location.protocol==="file:")return;e.preventDefault();a.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+a.dataset.yt+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Café Conteúdo"></iframe>';});});</script></body>
+<script>Array.prototype.forEach.call(document.querySelectorAll(".vcase[data-yt]"),function(a){a.addEventListener("click",function(e){if(location.hostname.indexOf("claude")>-1||location.protocol==="file:")return;e.preventDefault();a.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+a.dataset.yt+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Café Conteúdo"></iframe>';});});</script><div class="dl-ov" id="dlOv" hidden>
+<div class="dl-box" role="dialog" aria-modal="true" aria-labelledby="dlTit" aria-describedby="dlSub">
+<button class="dl-x" type="button" id="dlX" aria-label="Fechar">&times;</button>
+<h2 id="dlTit">Baixe o material</h2>
+<p class="dl-sub" id="dlSub">Preencha para receber o arquivo agora.</p>
+<form id="dlForm" novalidate>
+<label for="dlNome">Nome</label>
+<input type="text" id="dlNome" name="nome" autocomplete="name" required maxlength="120">
+<label for="dlEmail">E-mail</label>
+<input type="email" id="dlEmail" name="email" autocomplete="email" required maxlength="160">
+<label for="dlWpp">WhatsApp (com DDD)</label>
+<input type="tel" id="dlWpp" name="whatsapp" autocomplete="tel" inputmode="tel" placeholder="(43) 99999-9999" required maxlength="25">
+<div class="dl-hp" aria-hidden="true"><label for="dlEmp">Empresa</label><input type="text" id="dlEmp" name="empresa_site" tabindex="-1" autocomplete="off"></div>
+<label class="dl-ok"><input type="checkbox" id="dlAceite" name="aceite" required><span>Concordo em receber contato da Lemidi sobre este material. <a href="/politica-de-privacidade/" target="_blank" rel="noopener">Ver política de privacidade</a></span></label>
+<p class="dl-err" id="dlErr" role="alert" aria-live="assertive"></p>
+<button class="btn" type="submit" id="dlBtn">Baixar o material</button>
+</form>
+</div>
+</div>
+<script id="dl-js">(function(){
+var ENDPOINT='https://lemidi-secretaria.netlify.app/.netlify/functions/lead-blog', KEY='lmd_lead_blog';
+var ov=document.getElementById('dlOv'), form=document.getElementById('dlForm'), err=document.getElementById('dlErr'), btn=document.getElementById('dlBtn'), tit=document.getElementById('dlTit');
+if(!ov||!form) return;
+var atual=null, voltar=null;
+function ja(){ try{ return sessionStorage.getItem(KEY)==='1'; }catch(e){ return false; } }
+function marca(){ try{ sessionStorage.setItem(KEY,'1'); }catch(e){} }
+function baixar(a){ var l=document.createElement('a'); l.href=a.getAttribute('href'); l.setAttribute('download',''); l.rel='noopener'; document.body.appendChild(l); l.click(); l.remove(); }
+function abrir(a){ atual=a; voltar=document.activeElement; err.textContent=''; var m=a.getAttribute('data-material'); tit.textContent=m?('Baixe: '+m):'Baixe o material';
+  ov.hidden=false; document.documentElement.style.overflow='hidden'; requestAnimationFrame(function(){ ov.classList.add('on'); });
+  setTimeout(function(){ document.getElementById('dlNome').focus(); },60); }
+function fechar(){ ov.classList.remove('on'); document.documentElement.style.overflow=''; setTimeout(function(){ ov.hidden=true; },250); btn.disabled=false; btn.textContent='Baixar o material'; if(voltar&&voltar.focus) voltar.focus(); }
+function sucesso(material,registrado){ marca(); if(registrado){ try{ if(window.gtag) gtag('event','generate_lead',{method:'download',link_text:(material||'').slice(0,60)}); }catch(e){} } var a=atual; fechar(); if(a) baixar(a); }
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a[href^="/assets/pdf/blog/"]'); if(!a) return;
+  e.preventDefault(); e.stopPropagation();
+  if(ja()){ baixar(a); return; } abrir(a);
+},true);
+document.getElementById('dlX').addEventListener('click',fechar);
+ov.addEventListener('mousedown',function(e){ if(e.target===ov) fechar(); });
+document.addEventListener('keydown',function(e){
+  if(ov.hidden) return;
+  if(e.key==='Escape'){ e.preventDefault(); fechar(); return; }
+  if(e.key==='Tab'){ var f=[].filter.call(ov.querySelectorAll('button,input:not([tabindex="-1"]),a[href]'),function(x){ return x.offsetParent!==null; }); if(!f.length) return;
+    var p=f[0], u=f[f.length-1]; if(e.shiftKey&&document.activeElement===p){ e.preventDefault(); u.focus(); } else if(!e.shiftKey&&document.activeElement===u){ e.preventDefault(); p.focus(); } }
+});
+form.addEventListener('submit',function(e){
+  e.preventDefault(); err.textContent='';
+  var nome=form.nome.value.trim(), email=form.email.value.trim(), wpp=form.whatsapp.value.trim(), digitos=wpp.replace(/\D/g,'');
+  if(nome.length<2){ err.textContent='Informe o seu nome.'; form.nome.focus(); return; }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ err.textContent='Informe um e-mail válido.'; form.email.focus(); return; }
+  if(digitos.length<10||digitos.length>13){ err.textContent='Informe o WhatsApp com DDD.'; form.whatsapp.focus(); return; }
+  if(!form.aceite.checked){ err.textContent='Marque a caixa de concordância para baixar.'; form.aceite.focus(); return; }
+  var material=atual?(atual.getAttribute('data-material')||''):'';
+  var corpo={nome:nome,email:email,whatsapp:wpp,aceite:true,material:material,pagina:location.pathname,empresa_site:form.empresa_site.value};
+  btn.disabled=true; btn.textContent='Enviando...';
+  var ctl=window.AbortController?new AbortController():null, t=setTimeout(function(){ if(ctl) ctl.abort(); },12000);
+  fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(corpo),signal:ctl?ctl.signal:undefined})
+   .then(function(r){ clearTimeout(t);
+     if(r.status===400||r.status===429){ return r.json().catch(function(){ return {}; }).then(function(j){ err.textContent=(j&&j.erro)||'Confira os dados e tente de novo.'; btn.disabled=false; btn.textContent='Baixar o material'; }); }
+     sucesso(material, r.ok);
+   })
+   .catch(function(){ clearTimeout(t); sucesso(material, false); });
+});
+})();</script>
+</body>
 </html>
