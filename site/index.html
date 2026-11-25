@@ -238,6 +238,9 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 if(h.indexOf('wa.me/')>-1){gtag('event','generate_lead',{method:'whatsapp',link_text:(a.textContent||'').trim().slice(0,60)});}
 else if(h.indexOf('hotmart.com')>-1){gtag('event','begin_checkout',{item_name:'O Poder do Atendimento'});}
 else if(h.indexOf('crm.lemidi.com.br')>-1){gtag('event','sign_up',{method:'teste_crm'});}},true);</script>
+<script id="oaiq-odonto">!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f);}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
+oaiq("init",{pixelId:"CBxuAnyhbWVNQACnPaX9xJ",debug:location.hostname!=="lemidi.com.br"});
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me/"]');if(!a)return;try{oaiq("measure","lead_created",{type:"customer_action"});}catch(x){}},true);</script>
 </head>
 <body>
 <div id="pre" aria-hidden="true"><div class="pfill"><canvas id="preCv"></canvas><img id="preImg" src="/assets/img/b3cb3f54b946f7.webp" alt="" style="display:none"></div><div id="preB" hidden><i id="preI"></i></div><div id="preN" hidden>000</div></div>
