@@ -499,9 +499,11 @@ else if(h.indexOf('crm.lemidi.com.br')>-1){gtag('event','sign_up',{method:'teste
 @media (max-width:560px){.dl-ov{align-items:flex-end;padding:0}.dl-box{max-width:none;border-radius:20px 20px 0 0;max-height:92vh;padding:26px 20px 22px}}
 @media (prefers-reduced-motion:reduce){.dl-ov,.dl-box{transition:none}}
 </style>
-<script id="oaiq-odonto">!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f);}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
-oaiq("init",{pixelId:"CBxuAnyhbWVNQACnPaX9xJ",debug:location.hostname!=="lemidi.com.br"});
-document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me/"]');if(!a)return;try{oaiq("measure","lead_created",{type:"customer_action"});}catch(x){}},true);</script>
+<script id="oaiq-pixels">!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f);}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
+(function(){var p=location.pathname,dbg=location.hostname!=="lemidi.com.br";
+if(p.indexOf("/imobiliario/")!==0)oaiq("init",{pixelId:"CBxuAnyhbWVNQACnPaX9xJ",debug:dbg});/* Odontologia */
+if(p.indexOf("/odontologia/")!==0)oaiq("init",{pixelId:"Wsi3cFtfs5nkLdFj56R7VL",debug:dbg});/* Imobiliário */
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me/"]');if(!a)return;try{oaiq("measure","lead_created",{type:"customer_action"});}catch(x){}},true);})();</script>
 </head>
 <body data-art="vOT">
 <div id="prog"></div>
