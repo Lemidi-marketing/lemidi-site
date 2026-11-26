@@ -649,52 +649,20 @@ var LENS = [[.20,.30,46,0,14],[.80,.22,34,.05,22],[.70,.72,54,.02,9],[.27,.78,24
 var aP = new Float32Array(72), aS = new Float32Array(36), aL = new Float32Array(24);
 window.drawLiquid = function(k, now){
   tex(); if (!texOK) return;
-  var T = k*TOTAL, dt = last ? Math.min(.05, (now - last)/1000) : .016; last = now;
-  var f = ease(cl((T - tImp)/1.85, 0, 1));
+  /* sem jato caindo: o líquido sobe de dentro da logo, de baixo para cima */
+  var T = k*TOTAL, F0 = .2, FD = 2.4, FE = F0 + FD, i;
+  var f = ease(cl((T - F0)/FD, 0, 1));
   var level = BOT - (BOT - TOP + 8)*f;
-  var calm = cl((T - (T_OFF + .5))/.55, 0, 1);
-  var amp = (1 - f)*4.5 + 1.6*(1 - calm), tilt = Math.sin(T*4.6)*(1 - f*.6)*8*(1 - calm);
-  /* onde o jato encontra a superfície (nunca acima da borda do símbolo) */
-  var landY = level, uLand = uFor(landY), lx = X0 + VX*uLand;
-  for (var it = 0; it < 2; it++){ var e = 1 - Math.pow(cl(lx/(RX*.93), -1, 1), 2); landY = Math.max(level, -RY*.93*Math.sqrt(Math.max(0, e)) + 4); uLand = uFor(landY); lx = X0 + VX*uLand; }
-  var uHead = Math.min(uLand, Math.max(0, T - T_ON)), uTail = T > T_OFF ? T - T_OFF : 0;
-  var flowing = uHead > uTail + .004, hitting = flowing && uHead >= uLand - .001;
-  /* jato: 12 pontos ao longo da parábola */
-  var thin = T > T_OFF ? cl(1 - (T - T_OFF)*1.2, .45, 1) : cl((T - T_ON)*7, .5, 1);
-  for (var i = 0; i < 12; i++){
-    if (!flowing){ aS[i*3+2] = 0; continue; }
-    var q = i/11, u = uTail + (uHead - uTail)*q, p = pt(u, T);
-    var r = (10.5 - 4.6*cl(u/uB, 0, 1))*thin*(1 + .10*Math.sin(u*38 - T*17));
-    if (i === 11 && !hitting) r *= 1.35; if (i === 0 && uTail > 0) r *= .8;
-    aS[i*3] = p[0]; aS[i*3+1] = p[1] + (i === 11 && hitting ? 3 : 0); aS[i*3+2] = Math.max(.6, r);
-  }
-  /* respingos */
-  if (hitting){
-    if (!burst){ burst = true; for (var n = 0; n < 14; n++) parts.push({x: lx + rnd(-4,4), y: landY - 2, vx: rnd(-240,260), vy: rnd(-520,-190), r: rnd(2.2,5.2), l: 1.3}); }
-    emitAcc += dt; while (emitAcc > .034){ emitAcc -= .034; parts.push({x: lx + rnd(-5,5), y: landY - 1, vx: rnd(-90,150), vy: rnd(-300,-110), r: rnd(1.6,3.8), l: 1}); }
-    if (Math.random() < .5) parts.push({x: lx + rnd(-9,9), y: landY + rnd(-2,2), vx: rnd(-20,20), vy: rnd(-40,-10), r: rnd(3,5.5), l: .25});
-  }
-  for (var d = parts.length - 1; d >= 0; d--){ var o = parts[d]; o.vy += 1500*dt; o.x += o.vx*dt; o.y += o.vy*dt; o.l -= dt*1.15;
-    var inside = Math.pow(o.x/RX, 2) + Math.pow(o.y/RY, 2) < .9;
-    if (o.l <= 0 || (o.vy > 0 && inside && o.y > level + 2) || o.y > H) parts.splice(d, 1); }
-  while (parts.length > 24) parts.shift();
-  for (i = 0; i < 24; i++){ var pp = parts[i]; if (pp){ aP[i*3] = pp.x; aP[i*3+1] = pp.y; aP[i*3+2] = pp.r*cl(pp.l*3, 0, 1); } else aP[i*3+2] = 0; }
-  /* câmera: acompanha a queda de perto, treme no impacto e recua enquanto enche */
-  var s1 = ease(cl(T/tImp, 0, 1)), c0x = X0 + VX*.16 + 30, c0y = Y0 + H/(2*Z0) + 34, cix = 12, ciy = BOT - 34;
-  var ax = c0x + (cix - c0x)*s1, ay = c0y + (ciy - c0y)*s1;
-  var e2 = ease(cl((T - tImp - .12)/1.6, 0, 1));
-  var cx = ax*(1 - e2), cy = ay*(1 - e2), zoom = Z0 + (1 - Z0)*e2, roll = -.12*(1 - e2) + Math.sin(T*1.7)*.018*(1 - e2);
-  zoom *= 1 + .05*ease(cl((T - (T_OFF + .4))/.9, 0, 1));
-  if (T > tImp){ var shk = Math.exp(-(T - tImp)*7)*6; cx += Math.sin(T*71)*shk; cy += Math.cos(T*83)*shk; }
-  /* gotas na lente */
-  for (i = 0; i < 6; i++){ var Ld = LENS[i], t0 = tImp + .07 + Ld[3], tt = T - t0;
-    if (tt <= 0){ aL[i*4+3] = 0; continue; }
-    var a = cl(tt/.07, 0, 1)*(1 - cl((T - (TOTAL - 1.0))/.55, 0, 1));
-    aL[i*4] = Ld[0]*W; aL[i*4+1] = Ld[1]*H + tt*Ld[4]*S + tt*tt*Ld[4]*.9*S;
-    aL[i*4+2] = Ld[2]*S*(1 + .5*Math.exp(-tt*16)); aL[i*4+3] = a; }
-  var sheen = cl((T - (T_OFF + .62))/.5, 0, 1);
+  var calm = cl((T - (FE + .05))/.6, 0, 1);
+  var amp = (1 - f)*3.4 + 1.4*(1 - calm), tilt = Math.sin(T*3.1)*(1 - f*.5)*5*(1 - calm);
+  for (i = 0; i < 12; i++) aS[i*3+2] = 0;
+  for (i = 0; i < 24; i++) aP[i*3+2] = 0;
+  for (i = 0; i < 6; i++) aL[i*4+3] = 0;
+  /* câmera: começa um pouco mais perto e recua devagar enquanto enche */
+  var zoom = (1.22 - .22*eo(cl(T/FE, 0, 1)))*(1 + .05*ease(cl((T - (FE + .3))/.9, 0, 1)));
+  var sheen = cl((T - (FE + .3))/.5, 0, 1);
   gl.uniform2f(U.uRes, W, H); gl.uniform2f(U.uHalf, RX, RY); gl.uniform1f(U.uDpr, DPR); gl.uniform1f(U.uT, T); gl.uniform1f(U.uSheen, sheen);
-  gl.uniform4f(U.uCam, cx, cy, zoom, roll); gl.uniform4f(U.uSurf, level, amp, tilt, calm); gl.uniform3f(U.uHit, lx, hitting ? 1 : 0, f);
+  gl.uniform4f(U.uCam, 0, 0, zoom, 0); gl.uniform4f(U.uSurf, level, amp, tilt, calm); gl.uniform3f(U.uHit, 0, 0, f);
   gl.uniform3fv(U.uP, aP); gl.uniform3fv(U.uS, aS); gl.uniform4fv(U.uL, aL);
   gl.drawArrays(gl.TRIANGLES, 0, 3);
 };
