@@ -231,9 +231,9 @@ header.solid{background:rgba(5,11,22,.88);-webkit-backdrop-filter:blur(14px);bac
 footer .legal{font-size:11px;letter-spacing:.08em;color:var(--mut);margin:-14px 0 0}.bfoot .legal{margin-top:14px}footer .legal a{color:inherit;text-decoration:underline;text-underline-offset:3px}.pre-seen #pre{display:none!important}#blog .post .go{margin-top:auto}.gnota{align-self:flex-start;font-size:12px;letter-spacing:.08em;color:var(--mut);text-decoration:none;margin-top:4px;transition:color .3s}.gnota span{color:#F5B83D;margin-right:2px}.gnota:hover{color:var(--ink)}
 
 /* home enxuta */
-#metodo{padding:14vh var(--pad)}
-#metodo .sticky{position:static;height:auto;overflow:visible}
-#metodo .inner{position:static;transform:none;left:auto;right:auto;top:auto}
+#metodo{margin-top:6vh;padding-top:8vh;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:40px;scroll-margin-top:12vh}
+#metodo .mh{display:flex;flex-direction:column;gap:14px}
+#metodo h3.disp{font-size:clamp(32px,4.4vw,60px);line-height:1.05}
 #casos{height:auto!important;padding:14vh 0}
 #casos .sticky{position:static;height:auto;overflow:visible}
 #casos .track{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));transform:none!important}
@@ -356,31 +356,25 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
 </div>
 </section>
 
-<section id="metodo" aria-label="Método Lemi">
-<div class="sticky">
-<div class="inner">
-<div style="display:flex;flex-direction:column;gap:16px;max-width:1080px">
-<p class="mono l">Método Lemi</p>
-<h2 class="disp" data-rv><span class="ln"><span>Quatro passos para cada</span></span> <span class="ln"><span>venda perdida.</span></span></h2>
-</div>
-<div class="steps">
-<div class="step"><b>L</b><h3>Localizar</h3><p>Em qual etapa o lead se perdeu.</p></div>
-<div class="step"><b>E</b><h3>Entender</h3><p>Qual foi o motivo do não.</p></div>
-<div class="step"><b>M</b><h3>Medir</h3><p>Se o motivo está dentro ou fora do limite saudável.</p></div>
-<div class="step"><b>I</b><h3>Intervir</h3><p>Aplicar a ação definida para aquele motivo.</p></div>
-</div>
-</div>
-</div>
-</section>
 
 
-<section id="eco" class="sec" aria-label="Ecossistema">
+<section id="eco" class="sec" aria-label="Ecossistema e Método Lemi">
 <div class="sh"><p class="mono l">Ecossistema</p><h2 class="disp" data-rv><span class="ln"><span>Um método só,</span></span> <span class="ln"><span>em toda a cadeia.</span></span></h2><p class="lead" style="max-width:640px">O Método Lemi não está só nos nossos serviços. Está nos produtos que criamos, no conteúdo que produzimos e no acompanhamento que fazemos.</p></div>
 <div class="grid4">
 <div class="pil " data-rv style="--c:rgb(108,196,255)"><canvas class="sc" data-k="6" data-c="108,196,255" width="680" height="400" aria-hidden="true"></canvas><div class="tx"><h3>Tráfego e campanhas</h3><p>Meta e Google Ads para gerar demanda qualificada, com leitura semanal dos números.</p><a class="go" href="https://wa.me/554384458007?text=Ol%C3%A1%20vim%20pelo%20site%20e%20gostaria%20de%20conhecer%20a%20Lemidi." target="_blank" rel="noopener">Como trabalhamos</a></div></div>
 <div class="pil " data-rv style="--c:rgb(108,196,255)"><canvas class="sc" data-k="3" data-c="108,196,255" width="680" height="400" aria-hidden="true"></canvas><div class="tx"><h3>CRM Lemidi</h3><p>Simples de preencher, claro para decidir. Mostra em qual etapa você perde clientes e por quê.</p><a class="go" href="/crm/">Conhecer o CRM</a></div></div>
 <div class="pil " data-rv style="--c:rgb(108,196,255)"><canvas class="sc" data-k="4" data-c="108,196,255" width="680" height="400" aria-hidden="true"></canvas><div class="tx"><h3>Educação</h3><p>O curso O Poder do Atendimento treina sua equipe. O Café Conteúdo traz quem está fazendo dar certo.</p><a class="go" href="/o-poder-do-atendimento/">Ver o curso</a></div></div>
 <div class="pil " data-rv style="--c:rgb(108,196,255)"><canvas class="sc" data-k="0" data-c="108,196,255" width="680" height="400" aria-hidden="true"></canvas><div class="tx"><h3>Acompanhamento comercial</h3><p>Reuniões com o seu time para agir sobre agendamento, comparecimento e fechamento.</p><a class="go" href="https://wa.me/554384458007?text=Ol%C3%A1%20vim%20pelo%20site%20e%20gostaria%20de%20conhecer%20a%20Lemidi." target="_blank" rel="noopener">Como funciona</a></div></div>
+</div>
+<div id="metodo" aria-label="Método Lemi">
+<div class="mh"><p class="mono l">Método Lemi</p>
+<h3 class="disp" data-rv><span class="ln"><span>Quatro passos para cada venda perdida.</span></span></h3></div>
+<div class="steps">
+<div class="step"><b>L</b><h3>Localizar</h3><p>Em qual etapa o lead se perdeu.</p></div>
+<div class="step"><b>E</b><h3>Entender</h3><p>Qual foi o motivo do não.</p></div>
+<div class="step"><b>M</b><h3>Medir</h3><p>Se o motivo está dentro ou fora do limite saudável.</p></div>
+<div class="step"><b>I</b><h3>Intervir</h3><p>Aplicar a ação definida para aquele motivo.</p></div>
+</div>
 </div>
 </section>
 
@@ -397,9 +391,9 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
 <div class="sh"><p class="mono l">Casos</p><h2 class="disp" data-rv><span class="ln"><span>Resultado medido</span></span> <span class="ln"><span>em venda, não em lead.</span></span></h2></div>
 <div class="track" id="track">
 <div class="caso"><p class="mono">Alto padrão · Balneário Camboriú</p><b>R$ 14 milhões</b><h3>Apartamento no One Tower vendido em 60 dias, depois de meses sem proposta</h3><p>Portfólio de venda, imagens aéreas e campanhas para 4 perfis de comprador em todo o Brasil.</p><a class="go" href="/blog/one-tower-vendido-em-60-dias/">Ler o caso</a></div>
-<div class="caso"><p class="mono">Clínica odontológica</p><b>3x</b><h3>o faturamento de uma clínica com ticket médio em torno de R$ 16 mil</h3><p>Contado no Café Conteúdo, episódio #01, num papo com Maurício.</p><a class="go" href="/blog/como-uma-clinica-odontologica-triplicou-o-faturamento/">Ler o caso</a></div>
+<div class="caso"><p class="mono">Clínica odontológica</p><b>Faturamento 3x</b><h3>Clínica que triplicou o faturamento, com ticket médio em torno de R$ 16 mil</h3><p>Contado no Café Conteúdo, episódio #01, num papo com Maurício.</p><a class="go" href="/blog/como-uma-clinica-odontologica-triplicou-o-faturamento/">Ler o caso</a></div>
 <div class="caso"><p class="mono">Médio padrão · Londrina</p><b>12 apartamentos</b><h3>vendidos com cerca de R$ 9 mil de tráfego</h3><p>Morada Shangri-lá: uma rede social do bairro criada antes do primeiro anúncio. Recorde de vendas da construtora.</p><a class="go" href="/blog/morada-shangri-la-rede-social-de-bairro-lancamento-imobiliario/">Ler o caso</a></div>
-<div class="caso"><p class="mono">Varejo · Gleba Palhano, Londrina</p><b>468 iPhones</b><h3>vendidos em um mês, por uma loja que saiu do zero há menos de um ano</h3><p>De 1 para 6 vendedores e cerca de 1.900 leads por mês. Hoje, a loja que mais vende iPhone em Londrina e região.</p><a class="go" href="/blog/loja-de-iphone-londrina-do-zero-a-mais-vendida/">Ler o caso</a></div>
+<div class="caso"><p class="mono">Varejo · Gleba Palhano, Londrina</p><b>468 iPhones</b><h3>vendidos em 30 dias, com mais de R$ 1,8 milhão em faturamento</h3><p>Uma loja que saiu do zero há menos de um ano. De 1 para 6 vendedores e cerca de 1.900 leads por mês. Hoje, a loja que mais vende iPhone em Londrina e região.</p><a class="go" href="/blog/loja-de-iphone-londrina-do-zero-a-mais-vendida/">Ler o caso</a></div>
 <div class="caso more"><p class="mono">Mais resultados</p><h3 style="font-size:28px">Todos os casos, contados no blog</h3><a class="go" href="/blog/#casos">Ler os casos</a></div>
 </div>
 </div>
@@ -844,7 +838,7 @@ var hero = document.getElementById('hero'), met = document.getElementById('metod
 var stages = Array.prototype.slice.call(hero.querySelectorAll('.stage'));
 var steps = Array.prototype.slice.call(met.querySelectorAll('.step'));
 var stp = Array.prototype.slice.call(document.querySelectorAll('#stp li')), idx = document.getElementById('idx'), hd = document.getElementById('hd'), hint = document.getElementById('hint');
-var SECS = ['hero','metodo','eco','nichos','casos','cafe','blog','sobre','fim'].map(function(id){ return document.getElementById(id); });
+var SECS = ['hero','eco','nichos','casos','cafe','blog','sobre','fim'].map(function(id){ return document.getElementById(id); });
 var lastY = 0, menuOpen = false, veil = document.getElementById('veil');
 function prog(el){ var r = el.getBoundingClientRect(), tot = el.offsetHeight - H; return tot > 0 ? clamp(-r.top/tot, 0, 1) : 0; }
 function onScroll(){
@@ -865,7 +859,7 @@ function onScroll(){
   idx.textContent = '0' + n;
   hint.style.opacity = heroP > 0.03 ? '0' : '1';
   veil.style.opacity = (W > 860 ? clamp((heroP-0.16)/0.05,0,1)*clamp((0.95-heroP)/0.04,0,1) : clamp((heroP-0.16)/0.05,0,1)*0).toFixed(3);
-  cv.style.opacity = heroP >= 0.999 ? (n === 9 ? '0.5' : '0.16') : '1';
+  cv.style.opacity = heroP >= 0.999 ? (n === SECS.length ? '0.5' : '0.16') : '1';
   if (!menuOpen) hd.classList.toggle('hide', y > lastY && y > 200);
   lastY = y;
 }
@@ -1031,21 +1025,37 @@ onScroll(); requestAnimationFrame(frame);
 })();
 </script>
 <script>(function(){var h=document.getElementById('hd');if(!h)return;function f(){h.classList.toggle('solid',(window.scrollY||0)>60);}window.addEventListener('scroll',f,{passive:true});f();})();</script>
-<script id="capas-home-js">(function(){var M={'atendimento':'atendimento','tráfego pago':'trafego-pago','trafego pago':'trafego-pago','performance':'trafego-pago','comercial':'comercial','casos':'casos'};
-[].forEach.call(document.querySelectorAll('.post .ph'),function(el){var s=el.querySelector('span');var k=s&&M[(s.textContent||'').trim().toLowerCase()];if(k){el.classList.add('cap','cap-'+k);}});})();</script>
+<script id="capas-home-js">(function(){
+var M={'atendimento':'atendimento','tráfego pago':'trafego-pago','trafego pago':'trafego-pago','performance':'trafego-pago','comercial':'comercial','casos':'casos'};
+function capas(){[].forEach.call(document.querySelectorAll('.post .ph'),function(el){el.className='ph';var s=el.querySelector('span');var k=s&&M[(s.textContent||'').trim().toLowerCase()];if(k){el.classList.add('cap','cap-'+k);}});}
+capas();
+/* sempre as 3 matérias mais recentes do blog (os cards fixos ficam como reserva) */
+var MES={jan:0,fev:1,mar:2,abr:3,mai:4,jun:5,jul:6,ago:7,set:8,out:9,nov:10,dez:11};
+function data(tx){var m=/(\d{1,2}) (jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)[a-z]* (\d{4})/i.exec(tx||'');return m?new Date(+m[3],MES[m[2].toLowerCase()],+m[1]).getTime():0;}
+var cards=document.querySelectorAll('.grid3 .pil.post');if(!cards.length||!window.fetch||!window.DOMParser)return;
+fetch('/blog/',{cache:'no-cache'}).then(function(r){return r.ok?r.text():'';}).then(function(h){if(!h)return;
+var d=new DOMParser().parseFromString(h,'text/html'),vis={},L=[];
+[].forEach.call(d.querySelectorAll('a.pc[href^="/blog/"]'),function(a,i){var u=a.getAttribute('href');if(vis[u])return;vis[u]=1;var t=a.querySelector('h3'),mt=a.querySelector('.mt');if(!t)return;
+L.push({u:u,c:a.getAttribute('data-cat')||'',t:t.textContent.trim(),d:data(mt&&mt.textContent),i:i});});
+if(L.length<cards.length)return;
+L.sort(function(x,y){return (y.d-x.d)||(x.i-y.i);});
+[].forEach.call(cards,function(c,i){var p=L[i],ph=c.querySelector('.ph'),sp=ph&&ph.querySelector('span'),cat=c.querySelector('.tx .mono'),h=c.querySelector('.tx h3'),go=c.querySelector('.tx .go');
+if(!ph||!h||!go)return;ph.setAttribute('href',p.u);go.setAttribute('href',p.u);h.textContent=p.t;if(sp)sp.textContent=p.c;if(cat)cat.textContent=p.c;});
+capas();}).catch(function(){});
+})();</script>
 <style id="wpp-css">
-.wpp{position:fixed;right:22px;bottom:22px;z-index:60;display:flex;align-items:center;gap:10px;text-decoration:none;font-family:Inter,system-ui,sans-serif}
-.wpp b{display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;background:#25D366;box-shadow:0 10px 28px rgba(37,211,102,.35),0 4px 12px rgba(0,0,0,.25);transition:transform .3s cubic-bezier(.22,1,.36,1)}
-.wpp b svg{width:30px;height:30px}
-.wpp span{order:-1;background:#fff;color:#0B1626;font-size:14px;font-weight:600;padding:10px 14px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.18);opacity:0;transform:translateX(8px);transition:opacity .3s,transform .3s;pointer-events:none;white-space:nowrap}
-.wpp:hover b,.wpp:focus-visible b{transform:scale(1.06)}
+.wpp{position:fixed;right:22px;bottom:22px;z-index:60;display:flex;align-items:center;gap:12px;text-decoration:none;font-family:Inter,system-ui,sans-serif}
+.wpp b{position:relative;display:block;width:64px;height:64px;transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.wpp b img{display:block;width:100%;height:100%;filter:drop-shadow(0 8px 18px rgba(0,0,0,.35)) drop-shadow(0 2px 6px rgba(37,211,102,.35))}
+.wpp span{background:#fff;color:#0B1626;font-size:14px;font-weight:600;padding:10px 14px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.18);opacity:0;transform:translateX(8px);transition:opacity .3s,transform .3s;pointer-events:none;white-space:nowrap}
+.wpp:hover b,.wpp:focus-visible b{transform:scale(1.07)}
 .wpp:hover span,.wpp:focus-visible span{opacity:1;transform:none}
-.wpp b::after{content:"";position:absolute;width:60px;height:60px;border-radius:50%;border:2px solid #25D366;animation:wppPulse 2.6s ease-out 1.5s 3;opacity:0}
+.wpp b::after{content:"";position:absolute;inset:4px;border-radius:50%;border:2px solid #25D366;animation:wppPulse 2.6s ease-out 1.5s 3;opacity:0;pointer-events:none}
 @keyframes wppPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.6);opacity:0}}
-@media (max-width:860px){.wpp{right:16px;bottom:16px}.wpp b,.wpp b::after{width:56px;height:56px}.wpp span{display:none}}
+@media (max-width:860px){.wpp{right:14px;bottom:14px}.wpp b{width:58px;height:58px}.wpp span{display:none}}
 @media (prefers-reduced-motion:reduce){.wpp b::after{animation:none}}
 @media print{.wpp{display:none}}
 </style>
-<a class="wpp" href="https://wa.me/554384458007?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20conhecer%20a%20Lemidi." target="_blank" rel="noopener" aria-label="Falar com a Lemidi no WhatsApp"><span>Fale com a gente no WhatsApp</span><b aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 5C9.4 5 4 9.7 4 15.5c0 3 1.5 5.8 3.9 7.7L7 28l5.2-2.6c1.2.3 2.5.5 3.8.5 6.6 0 12-4.7 12-10.4S22.6 5 16 5z" fill="#fff"/><circle cx="11" cy="15.5" r="1.7" fill="#25D366"/><circle cx="16" cy="15.5" r="1.7" fill="#25D366"/><circle cx="21" cy="15.5" r="1.7" fill="#25D366"/></svg></b></a>
+<a class="wpp" href="https://wa.me/554384458007?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20conhecer%20a%20Lemidi." target="_blank" rel="noopener" aria-label="Falar com a Lemidi no WhatsApp"><span>Fale com a gente no WhatsApp</span><b><img src="/assets/img/whatsapp.png" alt="" width="64" height="64"></b></a>
 </body>
 </html>
