@@ -229,6 +229,18 @@ header.solid{background:rgba(5,11,22,.88);-webkit-backdrop-filter:blur(14px);bac
 .asoc a:hover{text-decoration:underline}
 .flogo{display:inline-flex}.flogo img{display:block}
 footer .legal{font-size:11px;letter-spacing:.08em;color:var(--mut);margin:-14px 0 0}.bfoot .legal{margin-top:14px}footer .legal a{color:inherit;text-decoration:underline;text-underline-offset:3px}.pre-seen #pre{display:none!important}#blog .post .go{margin-top:auto}.gnota{align-self:flex-start;font-size:12px;letter-spacing:.08em;color:var(--mut);text-decoration:none;margin-top:4px;transition:color .3s}.gnota span{color:#F5B83D;margin-right:2px}.gnota:hover{color:var(--ink)}
+
+/* home enxuta */
+#metodo{padding:14vh var(--pad)}
+#metodo .sticky{position:static;height:auto;overflow:visible}
+#metodo .inner{position:static;transform:none;left:auto;right:auto;top:auto}
+#casos{height:auto!important;padding:14vh 0}
+#casos .sticky{position:static;height:auto;overflow:visible}
+#casos .track{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));transform:none!important}
+#casos .caso{min-height:0}
+#casos .caso.more{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:space-between;padding:22px 34px}
+#casos .caso.more h3{font-size:22px!important}
+@media (max-width:860px){#casos .track{display:flex;flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 var(--pad) 10px;scroll-padding:0 var(--pad);scrollbar-width:none}#casos .track::-webkit-scrollbar{display:none}#casos .caso{flex:0 0 82vw;scroll-snap-align:start}#casos .caso.more{flex:0 0 60vw;flex-direction:column;align-items:flex-start;justify-content:center}#eco .pil canvas{display:none}}
 </style>
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB2L9GB1PN"></script>
@@ -286,7 +298,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
 <div id="mprev" aria-hidden="true"><canvas id="mpc" width="680" height="400"></canvas><div><b id="mt"></b><span id="md"></span></div></div>
 
 <main id="topo">
-<section id="hero" class="pin" style="height:480vh" aria-label="Abertura">
+<section id="hero" class="pin" style="height:250vh" aria-label="Abertura">
 <div class="sticky">
 <div class="veil" id="veil" aria-hidden="true"></div>
 <div class="stage" data-a="-1" data-b="0.15" id="s0">
@@ -336,7 +348,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
 </div>
 </section>
 
-<section id="metodo" class="pin" style="height:300vh" aria-label="Método Lemi">
+<section id="metodo" aria-label="Método Lemi">
 <div class="sticky">
 <div class="inner">
 <div style="display:flex;flex-direction:column;gap:16px;max-width:1080px">
@@ -353,17 +365,6 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
 </div>
 </section>
 
-<section id="num" aria-label="Números">
-<div style="display:flex;flex-direction:column;gap:14px;max-width:820px">
-<p class="mono l">A Lemidi em números</p>
-<h2 class="disp" data-rv><span class="ln"><span>Resultado que se mede</span></span> <span class="ln"><span>em venda.</span></span></h2>
-</div>
-<div class="cards">
-<div class="card" data-rv><p class="mono">Mais de</p><b><span data-count="137">137</span></b><h3>clientes atendidos</h3><p>Empresas que confiaram o comercial à Lemidi.</p></div>
-<div class="card" data-rv><p class="mono">Há</p><b><span data-count="11">11</span><small>anos</small></b><h3>aumentando vendas</h3><p>Desde 2015 acompanhando funis do primeiro clique ao fechamento.</p></div>
-<div class="card" data-rv><p class="mono">Parceria mais longa</p><b><span data-count="9">9</span><small>anos</small></b><h3>com o mesmo cliente</h3><p>Quem vê resultado em venda fica.</p></div>
-</div>
-</section>
 
 <section id="eco" class="sec" aria-label="Ecossistema">
 <div class="sh"><p class="mono l">Ecossistema</p><h2 class="disp" data-rv><span class="ln"><span>Um método só,</span></span> <span class="ln"><span>em toda a cadeia.</span></span></h2><p class="lead" style="max-width:640px">O Método Lemi não está só nos nossos serviços. Está nos produtos que criamos, no conteúdo que produzimos e no acompanhamento que fazemos.</p></div>
@@ -383,7 +384,7 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
 </div>
 </section>
 
-<section id="casos" class="pin" style="height:280vh" aria-label="Casos">
+<section id="casos" aria-label="Casos">
 <div class="sticky">
 <div class="sh"><p class="mono l">Casos</p><h2 class="disp" data-rv><span class="ln"><span>Resultado medido</span></span> <span class="ln"><span>em venda, não em lead.</span></span></h2></div>
 <div class="track" id="track">
@@ -835,7 +836,7 @@ var hero = document.getElementById('hero'), met = document.getElementById('metod
 var stages = Array.prototype.slice.call(hero.querySelectorAll('.stage'));
 var steps = Array.prototype.slice.call(met.querySelectorAll('.step'));
 var stp = Array.prototype.slice.call(document.querySelectorAll('#stp li')), idx = document.getElementById('idx'), hd = document.getElementById('hd'), hint = document.getElementById('hint');
-var SECS = ['hero','metodo','num','eco','nichos','casos','cafe','blog','fim'].map(function(id){ return document.getElementById(id); });
+var SECS = ['hero','metodo','eco','nichos','casos','cafe','blog','sobre','fim'].map(function(id){ return document.getElementById(id); });
 var lastY = 0, menuOpen = false, veil = document.getElementById('veil');
 function prog(el){ var r = el.getBoundingClientRect(), tot = el.offsetHeight - H; return tot > 0 ? clamp(-r.top/tot, 0, 1) : 0; }
 function onScroll(){
@@ -849,7 +850,7 @@ function onScroll(){
     var sh = (1 - o)*26*(heroP > (a+b)/2 ? -1 : 1);
     if (W > 860) s.style.transform = 'translateY(calc(-50% + '+sh.toFixed(1)+'px))';
   }
-  var m = prog(met);
+  var m = clamp((H*0.9 - met.getBoundingClientRect().top)/(H*0.5), 0, 1);
   for (var j=0;j<steps.length;j++) steps[j].classList.toggle('on', m > 0.06 + j*0.2);
   for (var q2=0;q2<stp.length;q2++){ stp[q2].classList.toggle('on', q2 === act); stp[q2].classList.toggle('done', q2 < act); }
   var n = 1; for (var q5=0;q5<SECS.length;q5++){ if (SECS[q5].getBoundingClientRect().top < H*0.55) n = q5 + 1; }
@@ -970,7 +971,7 @@ if ('IntersectionObserver' in window){
 function drawScenes(now){ for (var i=0;i<SC.length;i++){ var o = SC[i]; if (!o.vis) continue; var t = (now - o.t0)/1000; if (RM) t = 9; else if (o.k !== 0 && o.k !== 1 && o.k !== 5 && o.k !== 4) t = t % 7; scene(o.x, o.k, o.c, t); } }
 /* ---------- casos em faixa horizontal ---------- */
 var casos = document.getElementById('casos'), track = document.getElementById('track');
-function moveCasos(){
+function moveCasos(){ return;
   if (W <= 860){ return; }
   var p = prog(casos), max = Math.max(0, track.scrollWidth - W);
   track.style.transform = 'translateX(' + (-max*sm(p)).toFixed(1) + 'px)';
