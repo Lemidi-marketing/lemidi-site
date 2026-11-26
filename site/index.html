@@ -255,6 +255,14 @@ else if(h.indexOf('crm.lemidi.com.br')>-1){gtag('event','sign_up',{method:'teste
 if(p.indexOf("/imobiliario/")!==0)oaiq("init",{pixelId:"CBxuAnyhbWVNQACnPaX9xJ",debug:dbg});/* Odontologia */
 if(p.indexOf("/odontologia/")!==0)oaiq("init",{pixelId:"Wsi3cFtfs5nkLdFj56R7VL",debug:dbg});/* Imobiliário */
 document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me/"]');if(!a)return;try{oaiq("measure","lead_created",{type:"customer_action"});}catch(x){}},true);})();</script>
+<style id="capas-home-css">
+.post .ph.cap{background-size:cover!important;background-position:center!important;justify-content:flex-start!important;align-items:flex-end!important;padding:18px 20px;box-sizing:border-box}
+.post .ph.cap-atendimento{background-image:url(/assets/img/capas/atendimento.svg)!important}
+.post .ph.cap-trafego-pago{background-image:url(/assets/img/capas/trafego-pago.svg)!important}
+.post .ph.cap-comercial{background-image:url(/assets/img/capas/comercial.svg)!important}
+.post .ph.cap-casos{background-image:url(/assets/img/capas/casos.svg)!important}
+.post .ph.cap span{font-family:Sora,sans-serif!important;font-size:18px!important;letter-spacing:0!important;text-transform:none!important;font-weight:600}
+</style>
 </head>
 <body>
 <div id="pre" aria-hidden="true"><div class="pfill"><canvas id="preCv"></canvas><img id="preImg" src="/assets/img/b3cb3f54b946f7.webp" alt="" style="display:none"></div><div id="preB" hidden><i id="preI"></i></div><div id="preN" hidden>000</div></div>
@@ -388,8 +396,8 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
 <div class="sticky">
 <div class="sh"><p class="mono l">Casos</p><h2 class="disp" data-rv><span class="ln"><span>Resultado medido</span></span> <span class="ln"><span>em venda, não em lead.</span></span></h2></div>
 <div class="track" id="track">
-<div class="caso"><p class="mono">Alto padrão · Balneário Camboriú</p><b>60 dias</b><h3>para vender o One Tower, depois de meses sem proposta</h3><p>Portfólio de venda, imagens aéreas e campanhas para 4 perfis de comprador em todo o Brasil.</p><a class="go" href="/blog/one-tower-vendido-em-60-dias/">Ler o caso</a></div>
-<div class="caso"><p class="mono">Clínica odontológica</p><b>3x</b><h3>o faturamento, contado no Café Conteúdo</h3><p>Episódio #01, num papo com Maurício.</p><a class="go" href="/blog/como-uma-clinica-odontologica-triplicou-o-faturamento/">Ler o caso</a></div>
+<div class="caso"><p class="mono">Alto padrão · Balneário Camboriú</p><b>R$ 14 milhões</b><h3>Apartamento no One Tower vendido em 60 dias, depois de meses sem proposta</h3><p>Portfólio de venda, imagens aéreas e campanhas para 4 perfis de comprador em todo o Brasil.</p><a class="go" href="/blog/one-tower-vendido-em-60-dias/">Ler o caso</a></div>
+<div class="caso"><p class="mono">Clínica odontológica</p><b>3x</b><h3>o faturamento de uma clínica com ticket médio em torno de R$ 16 mil</h3><p>Contado no Café Conteúdo, episódio #01, num papo com Maurício.</p><a class="go" href="/blog/como-uma-clinica-odontologica-triplicou-o-faturamento/">Ler o caso</a></div>
 <div class="caso"><p class="mono">Médio padrão · Londrina</p><b>12 apartamentos</b><h3>vendidos com cerca de R$ 9 mil de tráfego</h3><p>Morada Shangri-lá: uma rede social do bairro criada antes do primeiro anúncio. Recorde de vendas da construtora.</p><a class="go" href="/blog/morada-shangri-la-rede-social-de-bairro-lancamento-imobiliario/">Ler o caso</a></div>
 <div class="caso"><p class="mono">Varejo · Gleba Palhano, Londrina</p><b>468 iPhones</b><h3>vendidos em um mês, por uma loja que saiu do zero há menos de um ano</h3><p>De 1 para 6 vendedores e cerca de 1.900 leads por mês. Hoje, a loja que mais vende iPhone em Londrina e região.</p><a class="go" href="/blog/loja-de-iphone-londrina-do-zero-a-mais-vendida/">Ler o caso</a></div>
 <div class="caso more"><p class="mono">Mais resultados</p><h3 style="font-size:28px">Todos os casos, contados no blog</h3><a class="go" href="/blog/#casos">Ler os casos</a></div>
@@ -1023,5 +1031,21 @@ onScroll(); requestAnimationFrame(frame);
 })();
 </script>
 <script>(function(){var h=document.getElementById('hd');if(!h)return;function f(){h.classList.toggle('solid',(window.scrollY||0)>60);}window.addEventListener('scroll',f,{passive:true});f();})();</script>
+<script id="capas-home-js">(function(){var M={'atendimento':'atendimento','tráfego pago':'trafego-pago','trafego pago':'trafego-pago','performance':'trafego-pago','comercial':'comercial','casos':'casos'};
+[].forEach.call(document.querySelectorAll('.post .ph'),function(el){var s=el.querySelector('span');var k=s&&M[(s.textContent||'').trim().toLowerCase()];if(k){el.classList.add('cap','cap-'+k);}});})();</script>
+<style id="wpp-css">
+.wpp{position:fixed;right:22px;bottom:22px;z-index:60;display:flex;align-items:center;gap:10px;text-decoration:none;font-family:Inter,system-ui,sans-serif}
+.wpp b{display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;background:#25D366;box-shadow:0 10px 28px rgba(37,211,102,.35),0 4px 12px rgba(0,0,0,.25);transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.wpp b svg{width:30px;height:30px}
+.wpp span{order:-1;background:#fff;color:#0B1626;font-size:14px;font-weight:600;padding:10px 14px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.18);opacity:0;transform:translateX(8px);transition:opacity .3s,transform .3s;pointer-events:none;white-space:nowrap}
+.wpp:hover b,.wpp:focus-visible b{transform:scale(1.06)}
+.wpp:hover span,.wpp:focus-visible span{opacity:1;transform:none}
+.wpp b::after{content:"";position:absolute;width:60px;height:60px;border-radius:50%;border:2px solid #25D366;animation:wppPulse 2.6s ease-out 1.5s 3;opacity:0}
+@keyframes wppPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.6);opacity:0}}
+@media (max-width:860px){.wpp{right:16px;bottom:16px}.wpp b,.wpp b::after{width:56px;height:56px}.wpp span{display:none}}
+@media (prefers-reduced-motion:reduce){.wpp b::after{animation:none}}
+@media print{.wpp{display:none}}
+</style>
+<a class="wpp" href="https://wa.me/554384458007?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20conhecer%20a%20Lemidi." target="_blank" rel="noopener" aria-label="Falar com a Lemidi no WhatsApp"><span>Fale com a gente no WhatsApp</span><b aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 5C9.4 5 4 9.7 4 15.5c0 3 1.5 5.8 3.9 7.7L7 28l5.2-2.6c1.2.3 2.5.5 3.8.5 6.6 0 12-4.7 12-10.4S22.6 5 16 5z" fill="#fff"/><circle cx="11" cy="15.5" r="1.7" fill="#25D366"/><circle cx="16" cy="15.5" r="1.7" fill="#25D366"/><circle cx="21" cy="15.5" r="1.7" fill="#25D366"/></svg></b></a>
 </body>
 </html>
